@@ -1,0 +1,101 @@
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### macOS ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+### Windows ###
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+### Linux ###
+*~
+
+### Log files ###
+*.log
+
+### Editor files ###
+# Vim
+*.swp
+*.swo
+*.vim
+
+# Emacs
+*~
+\#*#
+.*.swp
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+### Node.js ###
+node_modules/
+npm-debug.log
+yarn-error.log
+
+### Gradle ###
+.gradle/
+*.gradle
+build/
+
+### Maven ###
+target/
+
+### Eclipse ###
+.settings/
+.metadata/
+
+### JetBrains Rider ###
+.idea/
+.idea_modules/
+*.ipr
+*.iws
+*.iml
+
+### Docker ###
+.docker/
+docker-compose.override.yml
+
+### Sensitive data ###
+.env
+*.key
+*.pem

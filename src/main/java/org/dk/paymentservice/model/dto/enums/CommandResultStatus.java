@@ -4,7 +4,9 @@ import lombok.Getter;
 
 @Getter
 public enum CommandResultStatus {
-    SUCCESS, FAILED;
+    PROCESSING,
+    SUCCESS,
+    FAILED;
 
     public static CommandResultStatus fromString(String status) {
         for (var commandResultStatus : CommandResultStatus.values()) {

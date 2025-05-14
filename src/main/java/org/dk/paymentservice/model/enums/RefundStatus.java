@@ -4,7 +4,8 @@ import lombok.Getter;
 
 @Getter
 public enum RefundStatus {
-    COMPLETED, FAILED;
+    COMPLETED,
+    FAILED;
 
     public static RefundStatus fromString(String status) {
         for (var refundStatus : RefundStatus.values()) {

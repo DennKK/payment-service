@@ -4,7 +4,9 @@ import lombok.Getter;
 
 @Getter
 public enum PaymentTransactionStatus {
-    PROCESSING, SUCCESS, FAILED;
+    PROCESSING,
+    SUCCESS,
+    FAILED;
 
     public static PaymentTransactionStatus fromString(String status) {
         for (var paymentTransactionStatus : PaymentTransactionStatus.values()) {

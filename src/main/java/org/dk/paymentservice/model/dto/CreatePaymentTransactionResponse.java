@@ -1,12 +1,10 @@
 package org.dk.paymentservice.model.dto;
 
-import jakarta.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.dk.paymentservice.model.dto.enums.CommandResultStatus;
-
-import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor

@@ -5,14 +5,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.dk.paymentservice.model.enums.PaymentTransactionStatus;
-
-import java.math.BigDecimal;
-import java.util.List;
 
 @Entity
 @Getter
@@ -30,9 +30,9 @@ public class PaymentTransaction extends BaseEntity {
     private BankAccount sourceBankAccount;
 
     @ManyToOne
-    @JoinColumn(name = "destinationAccountId", referencedColumnName = "id")
-    private BankAccount destinationAccount;
+    @JoinColumn(name = "destinationBankAccountId", referencedColumnName = "id")
+    private BankAccount destinationBankAccount;
 
     @OneToMany(mappedBy = "paymentTransaction", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Refund> refunds;
+    private List<Refund> refunds = new ArrayList<>();
 }

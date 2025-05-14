@@ -3,14 +3,24 @@ databaseChangeLog:
       id: 001-create-bank-account
       author: Denis Karpov
       changes:
+        - createSequence:
+            sequenceName: bank_account_seq
+            startValue: 1
+            incrementBy: 1
         - createTable:
             tableName: bank_account
             columns:
               - column:
                   name: id
                   type: BIGINT
+                  defaultValueSequenceNext: bank_account_seq
                   constraints:
                     primaryKey: true
+                    nullable: false
+              - column:
+                  name: version
+                  type: BIGINT
+                  constraints:
                     nullable: false
               - column:
                   name: customer_id

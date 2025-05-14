@@ -5,7 +5,8 @@ import jakarta.persistence.Converter;
 import org.dk.paymentservice.model.enums.PaymentTransactionStatus;
 
 @Converter(autoApply = true)
-public class PaymentTransactionStatusConverter implements AttributeConverter<PaymentTransactionStatus, String> {
+public class PaymentTransactionStatusConverter
+    implements AttributeConverter<PaymentTransactionStatus, String> {
 
     @Override
     public String convertToDatabaseColumn(PaymentTransactionStatus attribute) {

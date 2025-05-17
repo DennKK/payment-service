@@ -3,17 +3,15 @@ databaseChangeLog:
       id: 002-create-payment-transaction
       author: Denis Karpov
       changes:
-        - createSequence:
-            sequenceName: payment_transaction_seq
-            startValue: 1
-            incrementBy: 1
         - createTable:
             tableName: payment_transaction
             columns:
               - column:
                   name: id
                   type: BIGINT
-                  defaultValueSequenceNext: payment_transaction_seq
+                  autoIncrement: true
+                  startWith: 1
+                  incrementBy: 1
                   constraints:
                     primaryKey: true
                     nullable: false

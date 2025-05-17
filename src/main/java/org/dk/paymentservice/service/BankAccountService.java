@@ -1,6 +1,6 @@
 package org.dk.paymentservice.service;
 
-import java.util.List;
+import java.math.BigDecimal;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.dk.paymentservice.model.entity.BankAccount;
@@ -17,13 +17,27 @@ public class BankAccountService {
         return bankAccountRepository.findById(id);
     }
 
-    @Transactional
-    public void saveAll(List<BankAccount> accounts) {
-        bankAccountRepository.saveAll(accounts);
+    public boolean hasSufficientFunds(BankAccount account, BigDecimal amount) {
+        return account.getBalance().compareTo(amount) >= 0;
     }
 
     @Transactional
-    public BankAccount save(BankAccount bankAccount) {
-        return bankAccountRepository.save(bankAccount);
+    public void debitAccount(BankAccount account, BigDecimal amount) {
+        account.setBalance(account.getBalance().subtract(amount));
+        bankAccountRepository.save(account);
+    }
+
+    @Transactional
+    public void creditAccount(BankAccount account, BigDecimal amount) {
+        account.setBalance(account.getBalance().add(amount));
+        bankAccountRepository.save(account);
+    }
+
+    @Transactional
+    public void transferFunds(BankAccount source, BankAccount destination, BigDecimal amount) {
+        debitAccount(source, amount);
+        if (destination != null) {
+            creditAccount(destination, amount);
+        }
     }
 }

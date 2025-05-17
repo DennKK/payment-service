@@ -3,17 +3,15 @@ databaseChangeLog:
       id: 003-create-refund
       author: Denis Karpov
       changes:
-        - createSequence:
-            sequenceName: refund_seq
-            startValue: 1
-            incrementBy: 1
         - createTable:
             tableName: refund
             columns:
               - column:
                   name: id
                   type: BIGINT
-                  defaultValueSequenceNext: refund_seq
+                  autoIncrement: true
+                  startWith: 1
+                  incrementBy: 1
                   constraints:
                     primaryKey: true
                     nullable: false
